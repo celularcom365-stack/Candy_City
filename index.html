@@ -374,9 +374,9 @@
   <script>
     /* ====== CONFIGURACIÓN ======
        Pega aquí la URL de tu Google Apps Script Web App (termina en /exec).
-       TYPE es el nombre de la pestaña/registro que usa tu doPost.            */
-    const SCRIPT_URL = "";
-    const TYPE = "LA-CONFI";
+       TYPE debe coincidir con el bloque "CANDY_CITY" del doPost.             */
+    const SCRIPT_URL = "PEGA_AQUI_TU_URL_EXEC";
+    const TYPE = "CANDY_CITY";
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -425,7 +425,7 @@
         detalle: fd.get("detalle").trim()
       };
 
-      if (!SCRIPT_URL) {
+      if (!SCRIPT_URL || !SCRIPT_URL.startsWith("https://script.google.com/")) {
         console.warn("SCRIPT_URL vacío. Datos:", data);
         show("err", "El formulario aún no está conectado. Configura SCRIPT_URL en index.html.");
         return;
